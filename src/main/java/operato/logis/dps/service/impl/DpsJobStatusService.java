@@ -144,7 +144,7 @@ public class DpsJobStatusService extends AbstractJobStatusService implements IJo
 	@Override
 	public JobInstance findPickingJob(Long domainId, String jobInstanceId) {
 		String sql = this.dpsPickQueryStore.getSearchPickingJobListQuery();
-		Map<String, Object> params = ValueUtil.newMap("domainId,id", domainId, jobInstanceId);
+		Map<String, Object> params = ValueUtil.newMap("domainId,jobInstanceId", domainId, jobInstanceId);
 		List<JobInstance> jobList = this.queryManager.selectListBySql(sql, params, JobInstance.class, 1, 1);
 		return ValueUtil.isEmpty(jobList) ? null : jobList.get(0);
 	}
