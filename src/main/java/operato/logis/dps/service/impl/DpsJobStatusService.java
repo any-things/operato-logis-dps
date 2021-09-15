@@ -158,4 +158,10 @@ public class DpsJobStatusService extends AbstractJobStatusService implements IJo
 		return this.queryManager.selectListBySql(sql, condition, JobInstance.class, 0, 0);
 	}
 
+	@Override
+	public List<JobInstance> searchJobStatusByCell(JobBatch batch, String stationCd, String cellCd, boolean workingCellOnly) {
+		// DPS는 필요없음
+		return null;
+	}
+
 }
